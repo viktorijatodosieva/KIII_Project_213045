@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: mk.ukim.finki.wp.eshop.EshopApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.788 s - in mk.ukim.finki.wp.eshop.EshopApplicationTests

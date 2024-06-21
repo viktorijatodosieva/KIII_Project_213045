@@ -1,0 +1,7 @@
+mk\ukim\finki\wp\eshop\selenium\WpproductsTest.class
+mk\ukim\finki\wp\eshop\EshopApplicationTests.class
+mk\ukim\finki\wp\eshop\selenium\SeleniumScenarioTest.class
+mk\ukim\finki\wp\eshop\selenium\AbstractPage.class
+mk\ukim\finki\wp\eshop\selenium\LoginPage.class
+mk\ukim\finki\wp\eshop\selenium\ProductsPage.class
+mk\ukim\finki\wp\eshop\RegisterTest.class
