@@ -3,10 +3,10 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,9 +22,15 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/kiii_project:latest
+      - name: Build Docker image
+        run: docker build -t your-image-tag .
+
+      - name: Push Docker image
+        run: |
+          docker tag ci/cd pipeline ${{ secrets.DOCKER_USERNAME }}/kiii_project:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/kiii_project:latest
+
+      - name: Deploy using Docker Compose
+        run: docker-compose -f docker-compose.yml up -d
+        depends-on: push
+
