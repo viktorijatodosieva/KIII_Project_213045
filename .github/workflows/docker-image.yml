@@ -22,15 +22,10 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build Docker image
-        run: docker build -t your-image-tag .
-
-      - name: Push Docker image
-        run: |
-          docker tag ci/cd pipeline ${{ secrets.DOCKER_USERNAME }}/kiii_project:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/kiii_project:latest
-
-      - name: Deploy using Docker Compose
-        run: docker-compose -f docker-compose.yml up -d
-        depends-on: push
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/kiii_project:latest
 
