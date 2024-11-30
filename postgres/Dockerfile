@@ -1,7 +1,0 @@
-FROM postgres:latest
-
-ENV POSTGRES_USER=postgres
-ENV POSTGRES_PASSWORD=data
-ENV POSTGRES_DB=kiii_database
-
-EXPOSE 5432
